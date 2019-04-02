@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Relação de produtos{% endblock %}
+
+{% block body %}
+  <h2>Lista de produtos</h2>
+  {% for produto in produtos %}
+  <ol>
+    <li>{{produto.descricao}}</li>
+  </ol>
+  {% endfor %}
+{% endblock %}
