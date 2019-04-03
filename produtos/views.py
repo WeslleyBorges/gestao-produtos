@@ -14,7 +14,7 @@ def novo_produto(request):
     form.save()
     return redirect('lista_produtos')
     
-  return render(request, 'novo-produto.html', {'form': form})
+  return render(request, 'form-produto.html', {'form': form})
 
 def atualizar_produto(request, id):
   produto = get_object_or_404(Produto, pk=id)
@@ -24,7 +24,7 @@ def atualizar_produto(request, id):
     form.save()
     return redirect('lista_produtos')
 
-  return render(request, 'novo-produto.html', {'form': form})
+  return render(request, 'form-produto.html', {'form': form})
 
 def excluir_produto(request, id):
   produto = get_object_or_404(Produto, pk=id)
