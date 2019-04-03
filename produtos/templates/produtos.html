@@ -2,21 +2,29 @@
 
 {% block title %}Relação de produtos{% endblock %}
 
-{% block body %}
+{% block content %}
   <h2>Lista de produtos</h2>
-  {% for produto in produtos %}
+  
   <ul>
-    <li>
-      <a href="{% url 'atualizar_produto' produto.id %}">{{produto.codigo}} - {{produto.descricao}}</a>
-      <button >
-      <a href="{% url 'excluir_produto' produto.id %}">Excluir</a>  
-      </button>
-    </li>    
-  </ul>
-  {% endfor %}
-  <button>
-    <a href="{% url 'novo_produto' %}">
-      Novo produto
-    </a>
-  </button>  
+    <div class="row">
+      <div class="col">
+        {% for produto in produtos %}
+        <li>
+          <a href="{% url 'atualizar_produto' produto.id %}">{{produto.codigo}} - {{produto.descricao}}</a>
+          <button >
+            <a href="{% url 'excluir_produto' produto.id %}">Excluir</a>  
+          </button>
+        </li> 
+        {% endfor %}
+      </div>      
+    </div>       
+  </ul>  
+  <div class="row">
+    <div class="col"></div>
+    <button>
+      <a href="{% url 'novo_produto' %}">
+        Novo produto
+      </a>
+    </button> 
+  </div>   
 {% endblock %}

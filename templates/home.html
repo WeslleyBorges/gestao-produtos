@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>
+  Bem vindo, {% if user.is_authenticated %}
+             {{user.username}}.
+             {% else %}
+              Convidado.
+             {% endif %}
+</h2><br><br>
+<button type="button" class="btn btn-light">
+  <a href="{% url 'lista_produtos' %}">Acessar lista de produtos</a>
+</button>
+{% endblock %}
