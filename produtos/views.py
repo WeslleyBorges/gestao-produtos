@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Produto
 from .forms import ProdutoForm
 
@@ -10,8 +10,25 @@ def lista_produtos(request):
 def novo_produto(request):
   form = ProdutoForm(request.POST or None, request.FILES or None)
 
-  if(form.is_valid())
+  if form.is_valid():
     form.save()
     return redirect('lista_produtos')
     
   return render(request, 'novo-produto.html', {'form': form})
+
+def atualizar_produto(request, id):
+  produto = get_object_or_404(Produto, pk=id)
+  form = ProdutoForm(request.POST or None, request.FILES or None, instance=produto)
+
+  if form.is_valid():
+    form.save()
+    return redirect('lista_produtos')
+
+  return render(request, 'novo-produto.html', {'form': form})
+
+def excluir_produto(request, id):
+  produto = get_object_or_404(Produto, pk=id)
+
+  produto.delete()
+
+  return redirect('lista_produtos')
