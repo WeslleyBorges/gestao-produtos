@@ -7,14 +7,11 @@
   {% for produto in produtos %}
   <ul>
     <li>
-      <a href="{% url 'atualizar_produto' produto.id %}"><!--{{produto.codigo}} - -->{{produto.descricao}}</a>
+      <a href="{% url 'atualizar_produto' produto.id %}">{{produto.codigo}} -{{produto.descricao}}</a>
       <button >
       <a href="{% url 'excluir_produto' produto.id %}">Excluir</a>  
       </button>
-    </li>
-    
+    </li>    
   </ul>
   {% endfor %}
-
-  <button><a href="{% url 'novo_produto' %}">Novo produto</a></button>  
 {% endblock %}
