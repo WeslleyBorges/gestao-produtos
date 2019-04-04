@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from produtos import urls as produto_urls
 from .views import home
+from django.contrib.auth import urls as login_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('produto/', include(produto_urls)),
-    path('', home, name='home')
+    path('', home, name='home'),
+    path('accounts/', include(login_urls))
 ]
