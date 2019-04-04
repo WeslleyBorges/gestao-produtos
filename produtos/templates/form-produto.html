@@ -1,15 +1,2 @@
-{% extends 'base.html' %}
-{% load bootstrap %}
-
-{% block title %}Novo Produto{% endblock %}
-
-{% block content %}
-<h3>Novo Produto</h3>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form | bootstrap}}
-  <button type="submit">Salvar</button>
-</form>
-
-{% endblock %}
-
+{% extends 'form-base.html' %}
+{% block form-title %}Novo produto{% endblock %}

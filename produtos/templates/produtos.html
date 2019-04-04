@@ -6,22 +6,24 @@
   <h2>Lista de produtos</h2>
   
   <ul>
-    <div class="row">
-      <div class="col">
-        {% for produto in produtos %}
-        <li>
+    {% for produto in produtos %}
+    <li>
+      <div class="row">
+        <div class="col col-lg-4 produto">
           <a href="{% url 'atualizar_produto' produto.id %}">{{produto.codigo}} - {{produto.descricao}}</a>
-          <button >
+        </div>
+        <div class="col"> 
+          <button class="btn btn-danger">
             <a href="{% url 'excluir_produto' produto.id %}">Excluir</a>  
           </button>
-        </li> 
-        {% endfor %}
-      </div>      
-    </div>       
+        </div>
+      </div>
+    </li> 
+    {% endfor %}    
   </ul>  
   <div class="row">
     <div class="col"></div>
-    <button>
+    <button class="btn btn-primary">
       <a href="{% url 'novo_produto' %}">
         Novo produto
       </a>

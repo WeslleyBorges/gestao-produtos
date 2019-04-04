@@ -3,6 +3,8 @@ li {
   padding: 10px;
 }
 
-/* nav#main-nav {
-  position: fixed;
-} */
+.produto {
+
+  border-width: 15px;
+  border-color: black;
+}
